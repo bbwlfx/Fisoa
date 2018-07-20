@@ -77,11 +77,14 @@ Fisoa是一个基于React/Node的在线PC端问答社区产品，拥有类似知
 
 ### 启动redis
 > 请先安装redis，并配置环境变量
+
 `redis-server`
 
 ### 启动数据库
 > 请先安装数据库Mysql
+
 首先在终端中创建数据库
+
 `create database imofish_DB;`
 
 调整node/lib/mysql/config.js中的配置代码
@@ -105,7 +108,8 @@ Fisoa是一个基于React/Node的在线PC端问答社区产品，拥有类似知
 ### 启动前端开发环境
 `npm run startfe`
 
-### 生产环境启动node
+### 生产环境启动node(不需要此步了)
+项目从线上环境下线之后不需要此步了，有兴趣的可以玩玩
 `npm run build`
 
 生产环境改为pm2方式启动node，启动完成之后可以***简单***通过以下指令查看
