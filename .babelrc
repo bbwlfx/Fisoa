@@ -1,0 +1,14 @@
+{
+	"presets": [
+		"react",
+		["env", {
+			"targets": {
+				"node": "current"
+			}
+		}
+		]
+	],
+	"plugins": [
+		["import", {"libraryName": "antd", "style": true}] // import special for antd		
+	]
+}

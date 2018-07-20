@@ -1,0 +1,63 @@
+@import 'common';
+
+body {
+  background-color: #fff !important;
+}
+.story-wrapper {
+  width: 980px;
+  margin: 0 auto;
+  .story-container {
+    width: 660px;
+    padding: 20px 20px 60px;
+    margin: auto;
+    font-size: 16px;
+    margin-top: 70px;
+    .article-banner {
+      .banner-image {
+        width: 100%;
+        height: auto;
+      }
+    }
+    .top-container {
+      margin-bottom: 100px;
+      .story-title {
+        margin: 15px 0;
+      }
+      .time,
+      .view {
+        vertical-align: middle;
+        margin-right: 10px;
+        font-size: 14px;
+        color: map-get($defaultColor, c102);
+      }
+      .tags {
+        display: inline-block;
+        font-size: 14px;
+      }
+    }
+    .article-container {
+      line-height: 30px;
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        margin: 10px 0;
+      }
+      li {
+        margin-left: 40px;
+      }
+      ul li{
+        list-style: disc;
+      }
+      ol li{
+        list-style: decimal;
+      }
+      .rdw-editor-toolbar {
+        display: none;
+      }
+    }
+  }
+}
+

@@ -1,0 +1,24 @@
+@import '../../../../scss/config.scss';
+
+.feedback-content {
+  width: 200px;
+  height: 100px;
+  overflow-y: scroll;
+}
+.btn-area {
+  margin-top: 20px;
+  border-top: 1px solid map-get($defaultColor, c1);
+  text-align: right;
+  .submit-btn {
+    margin-top: 10px;
+    display: inline-block;
+    padding: 5px 20px;
+    border-radius: 3px;
+    background-color: map-get($defaultColor, baseColor);
+    color: #fff;
+    &:hover {
+      cursor: pointer;
+      background-color: map-get($activeColor, baseColor);
+    }
+  }
+}

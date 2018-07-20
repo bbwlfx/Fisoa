@@ -1,0 +1,12 @@
+extends ./common/common.pug
+block common_title
+	title !{ title }
+block links
+	+_link('css/profile')
+block doms
+	#root
+block scripts
+	script.
+		window.profileInfo = !{ profileInfo };
+	+_script('js/profile')
+

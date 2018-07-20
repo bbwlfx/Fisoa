@@ -1,0 +1,55 @@
+@import 'config';
+
+body {
+	background-color: map-get($defaultColor, bodyColor);
+}
+* {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	text-decoration: none;
+}
+.card-container {
+	border: 1px solid map-get($defaultColor, borderColor);
+	background-color: #fff;
+	margin-top: 10px;
+	box-shadow: 0 1px 4px 0 rgba(0,0,0,.12);
+	border-radius: 2px;
+}
+a {
+	text-decoration: none;
+	color: map-get($defaultColor, c3);
+	transition: none;
+	&:hover {
+		opacity: .6;
+		color: map-get($defaultColor, c3);
+	}
+}
+
+.ant-btn {
+	&:hover {
+		border-color: map-get($defaultColor, baseColor);
+	}
+	&:focus {
+		border-color: map-get($activeColor, baseColor);
+	}
+}
+.ant-input-affix-wrapper:hover .ant-input:not(.ant-input-disabled) {
+	border-color: map-get($defaultColor, baseColor);	
+}
+.ant-radio-wrapper:hover .ant-radio .ant-radio-inner {
+	border-color: map-get($defaultColor, baseColor);
+}
+.ant-radio:hover,
+.ant-radio-checked {
+	.ant-radio-inner {
+		border-color: map-get($defaultColor, baseColor);
+		&:after {
+			background-color: map-get($defaultColor, baseColor);
+			border-color: map-get($defaultColor, baseColor);
+		}
+	}
+}
+.ant-switch-checked {
+	background-color: map-get($defaultColor, baseColor);
+}

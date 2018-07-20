@@ -1,0 +1,25 @@
+.question-controller-container {
+  .search-area {
+    .search-body {
+      margin: 20px 0;
+      display: flex;
+      vertical-align: middle;
+      line-height: 28px;
+      .text {
+        flex-basis: 150px;
+        text-align: right;
+      }
+      .search-input {
+        flex-basis: 200px;
+      }
+    }
+  }
+  .options {
+    .delete {
+      color: #f00;
+    }
+  }
+  .link {
+    color: #4886ff;
+  }
+}

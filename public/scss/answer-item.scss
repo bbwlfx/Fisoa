@@ -1,0 +1,58 @@
+@import 'common';
+
+.question-item-container {
+  box-sizing: border-box;
+  padding: 5px 10px;
+  font-size: 18px;
+  .info-container {
+    display: flex;
+    .left {
+      img {
+        width: 40px;
+        height: 40px;
+        border: 2px solid map-get($defaultColor, baseColor);
+        border-radius: 50%;
+        margin-right: 20px;
+      }
+    }
+    .right {
+      .name {
+        font-size: 18px;
+        color: #000;
+        transition: color .3s ease;
+        &:hover {
+          color: map-get($defaultColor, baseColor);
+        }
+      }
+      .time {
+        font-size: 12px;
+        color: map-get($defaultColor, c1);
+      }
+    }
+  }
+  .answer-content {
+    margin-left: 20px;
+  }
+  .answer-actions {
+    margin-left: 10px;
+    ul {
+      display: flex;
+      li {
+        color: map-get($defaultColor, aColor);
+        font-size: 14px;
+        margin-right: 10px;
+        &.clicked {
+          color: map-get($activeColor, aLink);
+        }
+        &:hover {
+          color: map-get($activeColor, aLink);
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+.rdw-editor-toolbar {
+  display: none;
+}

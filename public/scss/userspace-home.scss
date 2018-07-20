@@ -1,0 +1,24 @@
+@import 'config';
+
+.home-container {
+  padding: 20px;
+  li a {
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    .date {
+      color: map-get($defaultColor, c9);
+    }
+    &:hover {
+      color: currentColor;
+      background-color: map-get($defaultColor, hoverColor);
+    }
+  }
+  .no-bulletin {
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    font-size: 16px;
+    width: 100%;
+  }
+}

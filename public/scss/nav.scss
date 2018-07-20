@@ -1,0 +1,135 @@
+@import 'common';
+
+.nav-container {
+	width: 100%;
+	height: 60px;
+	background-color: map-get($defaultColor, c3);
+	border-bottom: 1px solid map-get($defaultColor, borderColor);
+	box-shadow: 0px 0px 5px map-get($activeColor, borderColor);
+	min-width: 1000px;
+	line-height: 60px;
+	position: fixed;
+	z-index: 1000;
+	top: 0;
+	left: 0;
+	a {
+		text-decoration: none;
+		color: #fff;
+		display: inline-block;
+		transition: all .3s ease;
+		&:hover {
+			color: map-get($defaultColor, baseColor);
+		}
+	}
+	.nav-content {
+		width: 1000px;
+		height: 100%;
+		margin: auto;
+		min-width: 1000px;
+		display: flex;
+		.nav-logo {
+			flex: 2;
+			a {
+				text-decoration: none;
+				font-size: 35px;
+				font-weight: bold;
+				color: map-get($defaultColor, baseColor);
+			}
+		}
+		.nav-user-space {
+			flex: 5;
+			.user-content {
+				display: flex;
+				height: 100%;
+				.post-card-container {
+					border: 0;
+					flex: 8;
+					text-align: center;
+				}
+				.user-avatar,
+				.message,
+				.history,
+				.dynamic {
+					flex: 2;
+					text-align: center;
+					a {
+						text-decoration: none;
+						font-size: 15px;
+						color: #fff;
+						display: inline-block;
+						width: 100%;
+						height: 100%;
+					}
+				}
+				.message,
+				.history,
+				.dynamic {
+					a {
+						transition: all .3s ease;
+						&:hover {
+							color: map-get($defaultColor, baseColor);
+						}
+					}	
+				}
+				.user-avatar {
+					text-align: center;
+					& img {
+						width: 40px;
+						height: 40px;
+						border-radius: 50%;
+						margin-top: 10px;
+						border: 2px solid map-get($defaultColor, baseColor);
+					}
+				}
+			}
+		}
+		.login-area {
+			float: right;
+			a {
+				font-size: 15px;
+			}
+		}
+	}
+}
+.ant-popover {
+	position: fixed;
+}
+.popover-post {
+	li {
+		width: auto;
+		text-align: center;
+		font-size: 18px;
+		line-height: 30px;
+
+			span {
+				margin: 0 5px;
+			}
+	}
+}
+.red-point {
+	span {
+		position: relative;
+		&:after {
+			display: block;
+			content: '';
+			position: absolute;
+			width: 5px;
+			height: 5px;
+			border-radius: 50%;
+			right: -5px;
+			top: -3px;
+			background-color: red;
+		}
+	}
+}
+
+.dynamic-container,
+.history-container {
+	width: 340px;
+	max-height: 400px;
+	overflow-y: scroll;
+	.no-data {
+		margin: 10px 0;
+		text-align: center;
+	}
+}

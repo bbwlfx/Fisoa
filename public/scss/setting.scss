@@ -1,0 +1,139 @@
+@import 'common';
+
+body {
+	background-color: map-get($defaultColor, backgroundColor);
+}
+div.userspace-container {
+	max-width: 1000px;
+	margin: auto;
+	margin-top: 90px;
+	.user-detail-container {
+		display: flex;
+		.detail-left {
+			display: flex;
+			flex: 2;
+			justify-content: center;
+			.avatar-uploader {
+				margin-top: 100px;
+				display: inline-block;
+				position: relative;
+				height: 100px;
+				width: 100px;
+				border-radius: 50%;
+				border: 2px solid map-get($defaultColor, baseColor);
+				box-sizing: content-box;
+				.camera {
+					line-height: 100px;
+					font-size: 35px;
+				}
+				&:hover {
+					.upload-mask {
+						opacity: 1;
+						cursor: pointer;
+					}
+				}
+				.upload-mask {
+					position: absolute;
+					top: 0;
+					right: 0;
+					left: 0;
+					bottom: 0;
+					background-color: map-get($defaultColor, c2);
+					border-radius: 50%;
+					opacity: 0;
+					transition: opacity .5s ease;
+					text-align: center;
+					vertical-align: middle;
+					color: #fff;
+					font-size: 20px;
+				}
+				.avatar {
+					border-radius: 50%;
+					display: block;
+					height: 100px;
+					width: 100px;
+				}
+			}
+			.submit-btn {
+				margin-top: 20px;
+				display: block;
+			}
+		}
+		.detail-right {
+			padding: 20px;
+			flex: 8;
+			font-size: 15px;
+			.setting-item {
+				display: flex;
+				font-size: 14px;
+				margin: 10px 0;
+				p {
+					flex-basis: 200px;
+					text-align: right;
+					font-weight: bold;
+					padding-right: 20px;
+					box-sizing: border-box;
+					line-height: 28px;
+				}
+			}
+			.title {
+				margin: 20px 0;
+				font-size: 18px;
+				font-weight: bold;
+				&.private {
+					margin-top: 20px;
+					.public {
+						margin-left: 50px;
+						font-size: 18px;
+					}
+				}
+			}
+			.ant-select,
+			.ant-radio-group,
+			.ant-input {
+				flex: 1;
+				border: 0;
+				background-color: transparent;
+				resize: none;
+				font-size: inherit;
+				transition: all .1s ease;
+				color: #a9a9a9;
+				&:focus {
+					box-shadow: none;
+					color: #333;
+				}
+				.ant-radio-wrapper {
+					font-size: inherit;
+				}
+			}
+			.ant-select {
+				input {
+					margin-left: 0;
+				}
+				.ant-select-selection {
+					background-color: transparent;
+				}
+			}
+			.change-password {
+				input {
+					margin: 10px 0px;
+					width: 250px;
+					height: 40px;
+					line-height: 40px;
+					border: 1px solid map-get($defaultColor, borderColor);
+					border-radius: 0;
+				}
+				div {
+					margin-left: 150px;
+					width: 250px;
+					.mf-button {
+						width: 100%;
+					}
+				}
+				.anticon {
+					font-size: 20px;
+				}
+			}
+		}
+	}
+}

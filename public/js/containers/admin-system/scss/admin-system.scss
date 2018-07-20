@@ -1,0 +1,22 @@
+@import '~scss/common';
+
+body {
+  background-color: #fff !important;
+}
+.admin-container {
+  overflow: hidden;
+  width: 1440px;
+  margin: 60px auto 0;
+  padding: 10px 20px;
+  .admin-body {
+    display: flex;
+    margin-top: 20px;
+    .menu-wrapper {
+      width: 200px;
+    }
+    .main-content {
+      margin-left: 20px;
+      width: 100%;
+    }
+  }
+}

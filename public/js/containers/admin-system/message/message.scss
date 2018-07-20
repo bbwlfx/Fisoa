@@ -1,0 +1,25 @@
+.system-message-container {
+  .target {
+    margin: 10px 0;
+  }
+  .input-area {
+    margin-bottom: 10px;
+    width: 200px;
+  }
+  .content-textarea {
+    width: 300px;
+    resize: vertical;
+  }
+  .button-area {
+    margin-top: 10px;
+  }
+  .system-message-list {
+    margin-top: 20px;
+    .ant-table {
+      margin-top: 10px;
+    }
+    .list-item-content {
+      white-space: pre-wrap;
+    }
+  }
+}

@@ -1,0 +1,124 @@
+@import 'config';
+
+.comment-list-container{
+	.comment-title {
+		font-size: 20px;
+		margin-top: 60px;
+		color: #000;
+		position: relative;
+		.total-num {
+			background-color: #fff;
+			padding: 0 5px;
+		}
+		.line {
+			display: block;
+			width: 100%;
+			height: 1px;
+			background-color: #ccc;
+			position: absolute;
+			top: 50%;
+			z-index: -1;
+		}
+	}
+	.write-container {
+		margin: 20px 0;
+		.write-content {
+			padding: 10px 20px;
+			display: flex;
+			.avatar {
+				margin-right: 10px;
+				img {
+					width: 35px;
+					height: 35px;
+					border-radius: 50%;
+					border: 2px solid map-get($defaultColor, baseColor);
+				}
+			}
+			.textarea {
+				flex: 1;
+			}
+		}
+		.comment-actions {
+			text-align: right;
+			a {
+				margin-left: 20px;
+				display: inline-block;
+				padding: 5px 20px;
+				&.submit-action {
+					color: map-get($defaultColor, baseColor);
+					border: 1px solid currentColor;
+					&:hover {
+						color: map-get($activeColor, baseColor);
+					}
+				}
+			}
+		}
+	}
+	.comment-item-container {
+		padding: 20px;
+		&:hover {
+			background-color: map-get($activeColor, backgroundColor);
+			.comment-foot .other-actions {
+				display: block;
+			}
+		}
+		.comment-foot {
+			display: flex;
+			.total-like-num {
+				flex: 1;
+				text-align: right;
+			}
+			.other-actions {
+				margin-left: 40px;
+				display: none;
+				a {
+					color: #000;
+					margin-right: 15px;
+					&:hover {
+						color: map-get($activeColor, aLink);
+					}
+					&.hasLiked {
+						color: map-get($activeColor, aLink);
+					}
+				}
+			}
+		}
+		.comment-editor {
+			.rdw-editor-toolbar {
+				display: none;
+			}
+		}
+		.user-info {
+			height: 35px;
+			line-height: 35px;
+			img {
+				height: 35px;
+				width: 35px;
+				border-radius: 50%;
+				vertical-align: middle;
+				border: 2px solid map-get($defaultColor, baseColor);
+        border-radius: 50%;
+			}
+			.name {
+				vertical-align: middle;
+				margin-left: 5px;
+				font-size: 16px;
+			}
+			.time {
+				vertical-align: middle;
+				font-size: 14px;
+				margin-left: 5px;
+				color: map-get($defaultColor, c1);
+			}
+		}
+		.comment-content {
+			margin-left: 40px;
+			p {
+				margin: 10px 0;
+			}
+		}
+	}
+	.no-comment {
+		text-align: center;
+	}
+}

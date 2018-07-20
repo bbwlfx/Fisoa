@@ -1,0 +1,80 @@
+extends ./common/common.pug
+block common_title
+	title 错误!{ code }
+block style
+	style.
+		html {
+			width: 100%;
+			height: 100%;
+			position: relative;
+		}
+		body {
+			transform: translate3d(-50%, -50%, 0);
+			left: 50%;
+			top: 50%;
+			position: absolute;
+		}
+		.error-container {
+			margin-top: 50px;
+		}
+		.error-code,
+		.error-status {
+			text-align: center;
+		}
+		.error-container .error-code {
+			font-size: 50px;
+			text-align: center;
+		}
+		.animate {
+			position: relative;
+			width: 600px;
+			height: 330px;
+			margin: auto;
+		}
+		.left-eye,
+		.right-eye {
+			top: 0;
+			height: 300px;
+			width: 100px;
+			position: absolute;
+			background-color: #000;
+			animation: blink 3s ease infinite;
+		}
+		.left-eye {
+			left: 0;
+		}
+		.right-eye {
+			right: 0;
+		}
+		.mouse {
+			height: 10px;
+			width: 100px;
+			position: absolute;
+			bottom: 0;
+			left: 50%;
+			margin-left: -50px;
+			background-color: #000;
+		}
+		@keyframes blink {
+			0% {
+				height: 300px;
+				top: 0;
+			}
+			45% {
+				height: 20px;
+				top: 140px;
+			}
+			50% {
+				height: 300px;
+				top: 0;
+			}
+		}
+block doms
+	#root
+		.error-container
+			.animate
+				.left-eye
+				.right-eye
+				.mouse
+			p.error-code !{ code || 404 }
+			p.error-status !{ status || '页面找不到了' }

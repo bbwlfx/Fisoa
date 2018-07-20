@@ -1,0 +1,11 @@
+extends ./common/common.pug
+block common_title
+	title #{title || '渡鸦( ´･ω･)ﾉ(._.`)-优雅的学习'}
+block links
+	+_link('css/story')
+block doms
+	#root
+block scripts
+	script.
+		window.__ARTICLE_INFO__ = !{ article };
+	+_script('js/story')

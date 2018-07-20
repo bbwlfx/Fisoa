@@ -1,0 +1,78 @@
+@import '../../../../scss/common';
+
+.profile-wrapper {
+  margin-top: 60px;
+  overflow: hidden;
+  .profile-container {
+    width: 800px;
+    margin: auto;
+    .banner-wrapper {
+      position: relative;
+      height: 400px;
+      width: 100%;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      background-color: #b9b9b9;
+    }
+    .user-container {
+      position: absolute;
+      bottom: 40px;
+      left: 40px;
+      .info-wrapper {
+        display: flex;
+        .image-wrapper {
+          display: inline-block;
+          height: 100px;
+          width: 100px;
+          border: 2px solid #fff;
+          border-radius: 5px;
+          margin-right: 20px;
+          img {
+            border-radius: 5px;
+          }
+        }
+        .nickname,
+        .blog,
+        .description {
+          color: #fff;
+          font-size: 16px;
+          text-shadow: 1px 1px 1px #999;
+          line-height: 30px;
+          word-break: break-all;
+        }
+        .level {
+          text-shadow: 1px 1px 1px #fff;
+        }
+      }
+    }
+    .follow-btn {
+      position: absolute;
+      right: 40px;
+      bottom: 50px;
+      &.has-followed {
+        background-color: map-get($defaultColor, c6);
+        color: map-get($defaultColor, c1);
+        &:hover {
+          cursor: pointer;
+          background-color: map-get($activeColor, c6);
+        }
+      }
+    }
+  }
+  .tab-head {
+    position: relative;
+    .data-field {
+      position: absolute;
+      right: 0;
+      top: 0;
+      font-size: 16px;
+      height: 100%;
+      padding: 10px 15px;
+      color: map-get($defaultColor, c9);
+      span {
+        margin: 0 5px;
+      }
+    }
+  }
+}

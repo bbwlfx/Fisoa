@@ -1,0 +1,65 @@
+@import '~scss/config.scss';
+
+$prefix: 'mf-button';
+
+.#{$prefix} {
+  background-color: map-get($defaultColor, c4);
+  color: #999;
+  font-size: 14px;
+  padding: 0 30px;
+  outline: none;
+  height: 40px;
+  line-height: 40px;
+  cursor: pointer;
+  border-width: 0;
+  &:hover:not(.#{$prefix}-disabled) {
+    background-color: map-get($activeColor, c6);
+  }
+  &:active:not(.#{$prefix}-disabled) {
+    background-color: map-get($defaultColor, c4);
+  }
+  &.#{$prefix}-primary:not(.#{$prefix}-disabled) {
+    color: #fff;
+    background-color: map-get($defaultColor, baseColor);
+    &:hover {
+      background-color: map-get($activeColor, baseColor);
+    }
+    &:active {
+      background-color: map-get($defaultColor, baseColor);
+    }
+  }
+  &.#{$prefix}-rect {
+    border-radius: 4px;
+  }
+  &.#{$prefix}-circle {
+    border-radius: 20px;
+  }
+  &.#{$prefix}-dashed {
+    border-style: dashed;
+  }
+  &.#{$prefix}-large {
+    font-size: 16px;
+  }
+  &.#{$prefix}-disabled,
+  &.#{$prefix}-disabled[disabled] {
+    cursor: not-allowed;
+    background-color: map-get($defaultColor, c1);
+    color: (0, 0, 0, .25);
+    background-color: map-get($defaultColor, c10);
+  }
+  .icon_loading {
+    margin-top: 4px;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    animation: rotate .9s linear infinite;
+  }
+}
+@keyframes rotate {
+  0% {
+    transform: rotateZ(0);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}

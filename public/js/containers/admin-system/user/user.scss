@@ -1,0 +1,45 @@
+.user-container {
+  .search-area {
+    .search-body {
+      margin: 20px 0;
+      display: flex;
+      vertical-align: middle;
+      line-height: 28px;
+      .text {
+        flex-basis: 150px;
+        text-align: right;
+      }
+      .search-input {
+        flex-basis: 200px;
+      }
+    }
+  }
+  .not-exist-text {
+    margin-top: 30px;
+    text-align: center;
+    color: #b9b9b9;
+    font-style: italic;
+  }
+  .user-controller-body,
+  .user-detail-body {
+    margin: 20px 0;
+    &:after {
+      content: '';
+      display: block;
+      clear: both;
+    }
+  }
+  .user-detail-area {
+    .flex {
+      display: flex;
+      color: #333;
+      margin: 5px 0;
+      letter-spacing: 1px;
+      .flex-text {
+        flex-basis: 150px;
+        text-align: right;
+        font-weight: bold;
+      }
+    }
+  }
+}

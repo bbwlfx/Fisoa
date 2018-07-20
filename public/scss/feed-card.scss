@@ -1,0 +1,128 @@
+@import 'animation';
+@import 'config';
+
+.feed-card {
+	display: flex;
+	padding: 20px;
+	&:hover {
+		background-color: map-get($defaultColor, c4);
+	}
+	.feed-card-right {
+		flex: 3;
+		margin-top: 15px;
+		width: 200px;
+		height: 150px;
+		overflow: hidden;
+		border-radius: 3px;
+		.LazyLoad {
+			background-color: #eee;
+			height: 100%;
+			width: 100%;
+			.cover {
+				width: 100%;
+				height: 100%;
+				display: block;
+				transition: transform .5s ease;
+				animation: fadeIn .5s ease;
+			}
+		}
+		.cover:hover {
+			transform: scale(1.14) translateZ(0);
+		}
+	}
+	.feed-card-left {
+		flex: 7;
+		.title {
+			font-size: 20px;
+			a {
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				color: #333;
+				max-width: 638px;
+				display: inline-block;
+				&:hover {
+					color: currentColor;
+					opacity: .6;
+				}
+				&.has-left {
+					max-width: 430px;
+				}
+			}
+		}
+		.author-area {
+			.avatar {
+				width: 50px;
+				height: 50px;
+				display: inline-block;
+				vertical-align: middle;
+				img {
+					width: 100%;
+					height: 100%;
+					display: block;
+					border-radius: 50%;
+					border: 2px solid map-get($defaultColor, baseColor);				
+				}
+			}
+			.detail {
+				display: inline-block;
+				vertical-align: middle;
+				.author-data {
+					display: inline-block;
+					margin: 5px 0;
+					div {
+						margin: 0 10px;
+					}
+					.author-name a{
+						font-size: 18px;
+						color: #000;
+						display: inline-block;
+						.description {
+							color: map-get($defaultColor, aColor);
+							word-break: break-all;
+						}
+						.lv {
+							font-size: 12px;
+							margin: 0 5px;
+							letter-spacing: 2px;
+							font-weight: bold;
+						}
+						&:hover{
+							opacity: .6;
+						}
+					}
+					.page-time {
+						font-size: 14px;
+						color: map-get($defaultColor, c5);
+						display: inline-block;
+					}
+					.comment,
+					.collect,
+					.view {
+						display: inline-block;
+						font-size: 14px;
+					}
+				}
+				.tags {
+					display: inline-block;
+					height: 20px;
+					width: 100%;
+					margin: 0 10px;
+				}
+			}
+		}
+		.description {
+			max-height: 70px;
+			overflow: hidden;
+			line-height: 25px;
+			margin: 5px 0;
+			text-indent: 2em;
+			font-size: 14px;
+			word-break: break-all;
+			a:hover {
+				opacity: .6;
+				color: currentColor;
+			}
+		}
+	}
+}

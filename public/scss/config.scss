@@ -1,0 +1,55 @@
+$defaultColor: (
+  baseColor: #50c87e,
+  hoverColor: #f3f3f3,
+  borderColor: rgba(30, 35, 42, .2),
+  bodyColor: #e8e8e8,
+  aColor: #333,
+  backgroundColor: #e8e8e8,
+  c02: rgba(0, 0, 0, .2),
+  cf1: #f7f8f9,
+  c1: #b9b9b9,
+  c2: rgba(0, 0, 0, .5),
+  c3: #333,
+  c4: #e7eaf1,
+  c5: #555,
+  c6: #edf2f9,
+  c7: #e64e74,
+  c8: #d9d9d9,
+  c9: #999,
+  c10: #f7f7f7,
+  c101: #0084ff,
+  c102: #9b9b9b
+);
+
+$activeColor: (
+  baseColor: #5AE08D,
+  borderColor: rgba(30, 35, 42, .5),
+  backgroundColor: rgba(80, 200, 126, .1),
+  aColor: #108ee9,
+  aLink: rgb(245, 41, 41),
+  c6: #edeff2,
+  c101: #edf2fd
+);
+
+.lv1 {
+  color: #50c87e;
+}
+.lv2 {
+  color: #005EAC;
+}
+.lv3 {
+  color: #FFD000;
+}
+.lv4 {
+  color: #FF8C00;
+}
+.lv5 {
+  color: #F012BE;
+}
+.lv6 {
+  color: red;
+}
+.lv7 {
+  color: red;
+  font-weight: bold;
+}

@@ -1,0 +1,153 @@
+@import 'common';
+
+body {
+  background-color: #fff !important;
+}
+.story-wrapper {
+  width: 980px;
+  padding-right: 200px;
+  margin: 0 auto;
+  .story-container {
+    width: 660px;
+    padding: 20px 20px 60px;
+    margin: auto;
+    font-size: 16px;
+    margin-top: 70px;
+    .article-banner {
+      .banner-image {
+        width: 100%;
+        height: auto;
+      }
+    }
+    .top-container {
+      margin-bottom: 100px;
+      .story-title {
+        margin: 15px 0;
+      }
+      .time,
+      .view {
+        vertical-align: middle;
+        margin-right: 10px;
+        font-size: 14px;
+        color: map-get($defaultColor, c102);
+      }
+      .tags {
+        display: inline-block;
+        font-size: 14px;
+      }
+    }
+    .article-container {
+      line-height: 30px;
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        margin: 10px 0;
+      }
+      li {
+        margin-left: 40px;
+      }
+      ul li{
+        list-style: disc;
+      }
+      ol li{
+        list-style: decimal;
+      }
+      .rdw-editor-toolbar {
+        display: none;
+      }
+    }
+  }
+  .left-area {
+    float: left;
+    .article-commend {
+      text-align: right;
+      margin-left: -100px;
+      position: fixed;
+      top: 200px;
+      .commend,
+      .collect,
+      .share {
+        color: map-get($defaultColor, c1);
+        .icon-area {
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          line-height: 40px;
+          background-color: map-get($defaultColor, c4);
+          color: currentColor;
+          transition: transform .3s ease;
+        }
+        text-align: center;
+        margin: 10px 0;
+        padding: 5px 15px;
+        font-size: 16px;
+        cursor: pointer;
+        &:hover,
+        &.clicked {
+          color: map-get($defaultColor, c101);
+          .icon-area {
+            transform: scale(1.1);
+            background-color: map-get($activeColor, c101);
+          }
+        }
+      }
+    }
+  }
+  .right-area {
+    position: fixed;
+    top: 90px;
+    margin-left: 740px;
+    .autho-container {
+      .avatar {
+        display: inline-block;
+        vertical-align: top;
+        img {
+          width: 60px;
+          height: 60px;
+          border-radius: 50%;
+          border: 2px solid map-get($defaultColor, baseColor);
+          border-radius: 50%;
+        }
+      }
+      .autho-right {
+        display: inline-block;
+        margin-left: 20px;
+        font-size: 18px;        
+        .name {
+          margin-top: 5px;
+          vertical-align: top;
+          color: map-get($defaultColor, c7);
+        }
+        .autho-fans {
+          font-size: 12px;
+          margin-top: 5px;
+          color: map-get($defaultColor, c102);
+        }
+      }
+      .pay_attention_btn {
+        .follow-btn {
+          width: 100px;
+          margin: 0px 0 0 80px;
+          &.has-followed {
+            background-color: map-get($defaultColor, c6);
+            color: map-get($defaultColor, c1);
+            &:hover {
+              cursor: pointer;
+              background-color: map-get($activeColor, c6);
+            }
+          }
+        }
+      }
+    }
+    .block-title {
+      margin: 50px 0 20px;;
+      font-size: 18px;
+      padding-bottom: 2px;
+      border-bottom: 1px solid map-get($defaultColor, c8);
+    }
+  }
+}
+

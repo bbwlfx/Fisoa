@@ -1,0 +1,23 @@
+.history-list {
+  .history-item {
+    padding-left: 20px;
+    position: relative;
+    max-width: 340px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    margin: 5px 0;
+    &:before {
+      display: inline-block;
+      content: '';
+      width: 5px;
+      height: 5px;
+      background-color: #333;
+      border-radius: 50%;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      margin-top: -3px;
+    }
+  }
+}

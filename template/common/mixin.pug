@@ -1,0 +1,11 @@
+mixin _link(href)
+	if DEBUG
+		link(rel="stylesheet" href=`${localPath}${href}.min.css` type="text/css")
+	else
+		link(rel="stylesheet" href=`${cdnPath}${href}.min.${version[href]}.css` type="text/css")
+
+mixin _script(src)
+	if DEBUG
+		script(type="text/javascript" src=`${localPath}${src}.min.js`)
+	else
+		script(type="text/javascript" src=`${cdnPath}${src}.min.${version[src]}.js`)

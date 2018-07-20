@@ -1,0 +1,21 @@
+.loading {
+  text-align: center;
+}
+.no-new-record {
+  margin: 20px 0;
+  text-align: center;
+}
+.dynamic-item {
+  margin: 5px 0;
+  a {
+    max-width: 70px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .content {
+    vertical-align: middle;
+  }
+}

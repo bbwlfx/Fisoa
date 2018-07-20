@@ -1,0 +1,12 @@
+{
+	"server_port": 8089,
+	"debug": true,
+	"amplitudeToken": "b94bf7308500eed748b39a9316ba932e",
+	"picPath": "",
+	"cdnPath": "",
+	"localPath": "//localhost:3300/assets/",
+	"AccessKey": "",
+	"AccessKeySecret": "",
+	"endPoint": "",
+	"Bucket": ""
+}

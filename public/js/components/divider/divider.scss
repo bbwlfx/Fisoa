@@ -1,0 +1,28 @@
+.divider-container {
+  position: relative;
+  z-index: 0;
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-top: 1px solid #b9b9b9;
+    z-index: -1;
+  }
+  .divider-text {
+    padding: 0 24px;
+    background-color: #fff;
+  }
+  &.center {
+    text-align: center;
+  }
+  &.left {
+    text-align: left;
+  }
+  &.right {
+    text-align: right;
+  }
+}

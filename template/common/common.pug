@@ -1,0 +1,21 @@
+include ./mixin.pug
+doctype html
+
+html
+	head
+		meta(http-equiv="X-UA-Compatible" content="IE=edge,chrome=1")
+		link(rel="icon" href=`${cdnPath}/favicon.ico` type="image/x-icon")
+		meta(charset="utf-8")
+		include common_state
+		block style
+		block links
+		block common_title
+			title 渡鸦( ´･ω･)ﾉ(._.`)-优雅的学习
+		include counter.pug
+		block custom_state
+	body
+		+_link('css/vendor')
+		block doms
+			#root
+		+_script('js/common')
+		block scripts

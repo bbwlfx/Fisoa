@@ -1,0 +1,27 @@
+.tab-list-container {
+  width: 100%;
+  background-color: #fff;
+  padding: 0 5px;
+  .tab-list {
+    .tab-item {
+      display: inline-block;
+      padding: 10px 15px;
+      font-size: 16px;
+      border-bottom: 2px solid transparent;
+      a {
+        color: #999;
+      }
+      &:hover a {
+        color: currentColor;
+        opacity: .6;
+      }
+      &.active {
+        border-bottom-color: #231815;
+        a {
+          color: #231815;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}

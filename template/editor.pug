@@ -1,0 +1,11 @@
+extends ./common/common.pug
+block common_title
+	title !{title || '写文章'}
+block links
+	+_link('css/editor')
+block doms
+	#root
+block scripts
+	script.
+		window.__INITSTATE__ = !{ __INITSTATE__ || '' };
+	+_script('js/editor')

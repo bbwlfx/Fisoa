@@ -1,0 +1,131 @@
+@import 'common';
+
+.editor-container {
+	width: 1000px;
+	margin: 110px auto;
+	.content-wrapper {
+		background-color: #fff;
+		padding: 0 25px;
+	}
+	.title-container {
+		margin-top: 10px;
+		.title {
+			height: 60px;
+			line-height: 60px;
+			font-size: 30px;
+			transition: all .3s ease;
+			border: 0;
+			&:focus,
+			&:hover {
+				border: 0;
+				box-shadow: none;
+			}
+		}
+	}
+	.tags-container {
+		padding: 15px 0;
+		box-sizing: border-box;
+		.tags-title {
+			font-size: 18px;
+			vertical-align: middle;
+		}
+		.ant-tag-text {
+			font-size: 15px;
+		}
+		.ant-input,
+		.ant-tag {
+			vertical-align: middle;
+			height: 32px;
+			line-height: 30px;
+			font-size: 15px;
+			width: auto;
+		}
+	}
+	.content-container {
+		font-size: 18px;
+		.rdw-option-wrapper {
+			height: 30px;
+			line-height: 30px;
+		}
+		.rdw-colorpicker-modal-options .rdw-option-wrapper{
+			height: 20px;
+			line-height: 20px;
+		}
+		.rdw-editor-toolbar {
+			margin-top: 20px;
+			border: 0;
+			position: sticky;
+			top: 70px;
+			background-color: #fff;
+			z-index: 10;
+		}
+		.editor {
+			min-height: 600px;
+		}
+	}
+	.upload-cover-container {
+		position: fixed;
+		z-index: 10;
+		left: 80px;
+		bottom: 100px;
+		&:hover .upload-cover{
+			color: map-get($defaultColor, baseColor);
+			.anticon-camera {
+				border-color: map-get($defaultColor, baseColor);
+			}
+		}
+		.upload-cover {
+			float: left;
+			font-size: 20px;
+			text-align: center;
+			.upload-text {
+				margin-top: 5px;
+				font-size: 15px;
+			}
+			.anticon-camera {
+				padding: 10px;
+				border: 1px solid map-get($defaultColor, c3);
+				border-radius: 50%;
+				cursor: pointer;
+			}
+		}
+	}
+}
+
+.no-cover,
+.no-banner {
+	font-size: 20px;
+	text-align: center;
+	color: map-get($defaultColor, c02);
+	font-weight: bold;
+	background-color: map-get($defaultColor, cf1);
+}
+
+.cover-popover {
+	.no-cover,
+	.article-cover {
+		width: 200px;
+		height: 150px;
+		line-height: 150px;
+		cursor: pointer;
+	}
+}
+
+.banner-wrapper {
+	margin-bottom: 20px;
+	.ant-upload-select {
+		display: block !important;
+	}
+	.banner-cover,
+	.no-banner {
+		position: relative;
+		height: 350px;
+		line-height: 350px;
+		width: 100%;
+		font-size: 30px;
+		cursor: pointer;
+	}
+	.banner-cover {
+		height: auto;
+	}
+}

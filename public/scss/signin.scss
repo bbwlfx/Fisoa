@@ -1,0 +1,121 @@
+@import 'common';
+.signin-modal {
+	cursor: auto;
+	width: 400px !important;
+	height: 350px !important;
+	.ant-modal-body {
+		padding: 0;
+		.ant-confirm-content {
+			margin: 10px 0 0;
+			padding: 30px 30px 10px;
+		}
+		.ant-confirm-btns {
+			display: none;
+		}
+	}
+	.sign-container {
+		.sign-card {
+			.sign-head {
+				.title {
+					text-align: center;
+					font-family: "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+				}
+				.sign-type {
+					position: absolute;
+					line-height: 60px;
+					top: 0;
+					left: 0;
+					width: 60px;
+					height: 60px;
+					color: map-get($defaultColor, c3);
+					font-size: 18px;
+					text-align: center;
+					z-index: 1;
+					.background-icon {
+						position: absolute;
+						font-size: 40px;
+						left: 10px;
+						z-index: -1;
+						color: map-get($defaultColor, c1);
+					}
+				}
+				.close {
+					position: absolute;
+					right: 0;
+					top: 0;
+					font-size: 35px;
+					&:hover {
+						cursor: pointer;
+						opacity: .8;
+					}
+				}
+			}
+			.signin-container,
+			.signup-container {
+				opacity: 0;
+				transform: translateX(-10%);
+				transition: transform .5s ease, opacity .5s ease;
+				height: 0;
+				visibility: hidden;
+				&.active {
+					position: relative;
+					visibility: visible;
+					opacity: 1;
+					height: auto;
+					transform: translateX(0%);
+				}
+				.signin-form-forgot {
+					color: map-get($defaultColor, c3);
+				}
+			}
+			.sign-form-button {
+				float: right;
+			}
+			.signup-container {
+				.iden-code {
+					display: inline-block;
+					margin: 0 10px 0 0;
+					vertical-align: middle;
+					.ant-form-explain {
+						display: none;
+					}
+				}
+			}
+			.ant-slider {
+				height: 30px;
+				margin: 10px;
+				.ant-slider-rail {
+					height: 20px;
+				}
+				.ant-slider-handle {
+					margin: 0;
+					margin-left: -10px;
+					border-radius: 0;
+					width: 20px;
+					height: 20px;
+				}
+				.ant-slider-track {
+					height: 20px;
+					background-color: map-get($defaultColor, baseColor);
+					&:hover {
+						background-color: map-get($activeColor, baseColor);
+					}
+				}
+				.ant-slider-handle {
+					border-color: map-get($defaultColor, baseColor);
+				}
+			}
+			.slider-desc {
+				line-height: 20px;
+			}
+		}
+	}
+}
+
+.mf-button {
+	padding: 0 20px !important;
+	height: 32px !important;
+	line-height: 32px !important;
+	font-size: 13px !important;
+	vertical-align: middle;
+}

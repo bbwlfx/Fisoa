@@ -1,0 +1,38 @@
+@import '../../../../scss/config';
+
+.menu-container {
+  width: 200px;
+  .menu-block {
+    border-bottom: 1px solid #f8f8f8;
+    &:last-child {
+      border-bottom: none;
+    }
+    background-color: #fff;
+  }
+  .menu-item-h1,
+  .menu-item-h2 {
+    display: block;
+    width: 100%;
+    color: #333;
+    font-size: 16px;
+    padding: 10px 5px 10px 30px;;
+    box-sizing: border-box;
+    text-decoration: none;
+    .anticon {
+      margin-right: 10px;
+    }
+    &:hover {
+      opacity: .6;
+    }
+    &.active {
+      background-color: map-get($defaultColor, baseColor);
+      color: #fff;
+    }
+  }
+  span.menu-item-h1 {
+    opacity: .6;
+  }
+  .menu-item-h2 {
+    padding-left: 56px;
+  }
+}

@@ -1,0 +1,25 @@
+.ant-modal {
+  width: 500px !important;
+}
+.question-content {
+  .tips {
+    font-size: 16px;
+  }
+  .question-title,
+  .question-field,
+  .question-description {
+    font-size: 15px;
+  }
+  .question-title {
+    margin: 20px 0;
+  }
+  .question-field {
+    margin-bottom: 20px;
+    width: 100%;
+  }
+  .question-description {
+    min-height: 200px;
+    min-width: 100%;
+    width: 100%;    
+  }
+}

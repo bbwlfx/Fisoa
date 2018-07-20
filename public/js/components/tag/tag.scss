@@ -1,0 +1,23 @@
+@import '~scss/config';
+
+.tag-wrapper {
+  padding: 0 10px;
+  vertical-align: middle;
+  height: 20px;
+  border-radius: 20px;
+  margin-right: 10px;
+  display: inline-block;
+  color: map-get($defaultColor, c9);
+  border: 1px solid currentColor;
+  .tag-text {
+    color: currentColor;
+    font-size: 12px;
+    line-height: 20px;
+    display: block;
+    height: 20px;
+  }
+  &:hover {
+    cursor: pointer;
+    color: map-get($defaultColor, c101);
+  }
+}

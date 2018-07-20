@@ -1,0 +1,53 @@
+@import '~scss/config';
+
+$prefix: 'simple-article-list';
+
+.#{$prefix}-container {
+  .no-data {
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    font-size: 16px;
+  }
+  .#{$prefix}-wrapper {
+    .#{$prefix} {
+      width: 310px;
+      font-size: 0;
+      .#{$prefix}-item {
+        font-size: 12px;
+        .article-info {
+          width: 230px;
+          display: inline-block;
+          margin-top: 4px;
+          vertical-align: top;
+          .title {
+            font-size: 13px;
+          }
+          .time,
+          .view {
+            margin: 4px 5px 0 0;
+            display: inline-block;
+            color: map-get($defaultColor, c102);
+          }
+        }
+        .cover {
+          display: inline-block;
+          width: 68px;
+          height: 50px;
+          border-radius: 4px;
+          img {
+            width :100%;
+            height: 100%;
+          }
+        }
+      }
+    }
+  }
+  .view-more {
+    width: 310px;
+    margin-top: 10px;
+    .mf-button {
+      width: 100%;
+    }
+  }
+}

@@ -1,0 +1,36 @@
+@import '../../../../../scss/config.scss';
+
+.message-item-wrapper {
+  padding: 10px;
+  overflow: hidden;
+  font-size: 15px;
+  border-bottom: 1px solid map-get($defaultColor, borderColor);
+  .avatar {
+    width: 50px;
+    height: 50px;
+    float: left;
+    img {
+      border-radius: 5px;
+    }
+  }
+  .message-body {
+    margin-left: 60px;
+    font-size: 14px;
+    .message {
+      white-space: pre-wrap;
+      line-height: 20px;
+      margin: 20px 0 10px;
+    }
+    .message-name {
+      a {
+        color: map-get($defaultColor, aColor);
+        &:hover {
+          opacity: .6;
+        }
+      }
+    }
+    .time {
+      color: map-get($defaultColor, c9);
+    }
+  }
+}
