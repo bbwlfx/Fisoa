@@ -49,7 +49,7 @@ Fisoa是一个基于React/Node的在线PC端问答社区产品，拥有类似知
 {
   "server_port": 8089,
   "debug": true,
-  "amplitudeToken": xxxxxxxxxxxxxxxxxxxxx,
+  "amplitudeToken": "xxxxxxxxxxxxxxxxxxxxx",
   "picPath": "xxxxxxxxxxxxxxxxxx",
   "localPath": "//localhost:3300/assets/",
   "AccessKey": "x*****************x",
