@@ -70,6 +70,33 @@ Fisoa是一个基于React/Node的在线PC端问答社区产品，拥有类似知
 - mysql使用5.7以上版本
 - redis使用3.0.2以上版本
 
+## 关于邮件服务的说明
+发送邮件使用的mailer库，配置文件参考/node/util/mailer/config.js文件
+```
+{
+  transport: {
+    host: 'smtp.126.com',
+    port: 465,
+    auth: {
+      user: '123456789@126.com',
+      pass: 'password'
+    },
+    secure: true
+  },
+  mailOptions: (to, html) => ({
+    from: 'Fisoa <123456789@126.com>',
+    to,
+    subject: '来自Fisoa的消息',
+    html
+  })
+};
+```
+以@126邮箱为例，auth填写你的登录信息，user用户名，pass是你的授权码而不是账号的密码，126中的授权码如截图所示~
+
+![管理后台](./cut_image/邮件.png)
+
+mailOptions中的html可以编写你要发送的邮件的内容和样式
+
 ## 启动方法
 
 ### 安装依赖
