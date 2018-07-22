@@ -85,7 +85,7 @@ Fisoa是一个基于React/Node的在线PC端问答社区产品，拥有类似知
 
 首先在终端中创建数据库
 
-`create database imofish_DB;`
+`create database db_fisoa;`
 
 调整node/lib/mysql/config.js中的配置代码
 ```js
@@ -101,6 +101,8 @@ Fisoa是一个基于React/Node的在线PC端问答社区产品，拥有类似知
 
 运行生成数据表代码
 `node ./scripts/create-mysql.js`
+
+>注：如果文章中带有imoji时发布失败，请将数据库的编码格式调成utf8mb4。代码中默认是utf8mb4一般情况下不需要再次调整。
 
 ### 启动node开发环境
 `npm run start`
