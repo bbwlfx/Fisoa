@@ -29,6 +29,14 @@ Fisoa是一个基于React/Node的在线PC端问答社区产品，拥有类似知
 项目包括node层(node)、前端(public)两层代码。两层代码的依赖均在node_modules中，依赖项在package.json内。
 开发时请在IDE中开启Eslint插件。
 
+## TODO:
+- 分享文章功能实现
+- React升级16.3
+- More
+
+## DONE
+- 文章详情页SSR(碰到太多的坑)
+
 ## 开发环境
 
 - 操作系统：macOS@10.12.6
@@ -114,7 +122,8 @@ mailOptions中的html可以编写你要发送的邮件的内容和样式
 
 `create database db_fisoa;`
 
-调整node/lib/mysql/config.js中的配置代码
+调整node/lib/mysql/dev_config.js中的配置代码
+config.js文件为开发环境配置，已废弃
 ```js
 {
   host: '127.0.0.1',

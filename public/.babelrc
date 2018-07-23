@@ -1,0 +1,45 @@
+{
+	"presets": [
+		"react",
+		"stage-0",
+		[
+			"env", 
+			{
+				"targets": {
+					"browsers": [
+						"Chrome >= 52",
+						"FireFox >= 44",
+						"Safari >= 7",
+						"ie >= 10",
+						"last 4 Edge versions"
+					]
+				}
+			}
+		]
+	],
+	"plugins": [
+		"babel-plugin-add-module-exports",
+		["import", {"libraryName": "antd", "style": true}],
+		["module-resolver", {
+			"cwd": "babelrc",
+			"root": ["./js"],
+			"alias": {
+				"scss": "./scss",
+				"components": "./js/components",
+				"containers": "./js/containers",
+				"constants": "./js/constants",
+				"lib": "./js/lib",
+				"router": "./js/router",
+				"stirngs": "./js/string.js",
+				"store": "./js/store"
+			}
+		}]
+	],
+	"env": {
+		"node": {
+			"plugins": [
+				"transform-es2015-modules-commonjs"
+			]
+		}
+	}
+}

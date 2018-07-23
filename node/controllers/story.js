@@ -1,3 +1,6 @@
+import { renderToString } from 'react-dom/server';
+import React from 'react';
+
 const Mysql = require('../lib/mysql/query');
 const { logEvent } = require('../lib/logger');
 
@@ -106,16 +109,26 @@ module.exports.story = async function(ctx) {
     fans_count = await Mysql.showFans(author[0].uid);
   } catch(e) {
     ctx.logger('[show fans error!]:', JSON.stringify(e.sqlMessage));
-  }
+  };
 
-  ctx.render('story', {
-    article: JSON.stringify({
+  // 引入Story组件，ssr
+  const Story = require('../../public/js/containers/story');
+
+  const props = {
+    userInfo: ctx.session,
+    articleInfo: {
       author: author[0].nickname,
       avatar: author[0].avatar,
       author_fans_count: fans_count[0].count,
       ...info[0]
-    }),
-    title: info[0].title
+    },
+    isSelf: info[0].uid === ctx.session.uid
+  };
+  const html = renderToString(<Story {...props} />);
+  ctx.render('story', {
+    __PROPS__: JSON.stringify(props),
+    title: info[0].title,
+    html
   });
 };
 

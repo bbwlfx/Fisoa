@@ -4,8 +4,8 @@ block common_title
 block links
 	+_link('css/story')
 block doms
-	#root
+	#root !{ html }
 block scripts
 	script.
-		window.__ARTICLE_INFO__ = !{ article };
+		window.__PROPS__ = !{ __PROPS__ };
 	+_script('js/story')

@@ -1,3 +1,18 @@
+require.extensions['.scss'] = function() {
+  return null;
+};
+require.extensions['.css'] = function() {
+  return null;
+};
+require.extensions['.less'] = function() {
+  return null;
+};
+require.extensions['.png'] = function(module, file) {
+  return module._compile('module.exports = ""', file);
+};
+require.extensions['.svg'] = function() {
+  return null;
+};
 const Koa = require('koa');
 const KoaPug = require('koa-pug');
 const KoaRouter = require('koa-router');
@@ -12,6 +27,8 @@ const KoaHelmet = require('koa-helmet');
 const nodeSchedule = require('node-schedule');
 const calRank = require('./util/calcRank');
 const { Logger, logEvent, reqLogger } = require('./lib/logger');
+
+global.window = {};
 
 const mysql_config = process.env.NODE_ENV === 'development' ? require('./lib/mysql/dev_config') : require('./lib/mysql/config');
 
@@ -130,11 +147,12 @@ app.use(router.routes()).use(router.allowedMethods());
 app.use((ctx) => {
   ctx.render('error');
 });
-app.on('error', (err) => {
+app.on('error', (err, ctx) => {
   logEvent.fatal(`node runtime report error:${err}`);
+  ctx.render('error');
 });
 process.on('uncaughtException', (err) => {
-  logEvent.fatal('[catch the error, reason:]', err);
+  logEvent.fatal('[catch the error, reason:]', JSON.stringify(err));
 });
 
 /* eslint-disable dot-notation */

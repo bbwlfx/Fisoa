@@ -6,7 +6,7 @@
   "scripts": {
     "startfe": "NODE_ENV=development webpack-dev-server --host 0.0.0.0 --colors --progress --devtool cheap-module-source-map",
     "buildfe": "NODE_ENV=production  webpack --colors --progress",
-    "start": "NODE_ENV=development nodemon --harmony node/app.js ../config/config.local.json",
+    "start": "NODE_ENV=development nodemon node/app.js ../config/config.local.json",
     "build": "export NODE_ENV=production && node_modules/pm2/bin/pm2 start node/app.js -n Fisoa -f -- ../config/config.json -w",
     "make": "bash sh/build.sh",
     "merge": "bash sh/merge.sh"
@@ -17,10 +17,12 @@
     "ali-oss": "^4.11.2",
     "antd": "^2.13.6",
     "babel": "^6.23.0",
+    "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.0.1",
     "babel-loader": "^7.1.1",
     "babel-plugin-import": "^1.2.1",
+    "babel-plugin-module-resolver": "^3.1.1",
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.6.0",
     "babel-preset-es2015": "^6.24.1",
@@ -80,5 +82,9 @@
     "uuid4": "^1.0.0",
     "webpack": "^3.1.0",
     "webpack-dev-server": "^2.5.0"
+  },
+  "devDependencies": {
+    "babel-plugin-add-module-exports": "^0.3.2",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2"
   }
 }

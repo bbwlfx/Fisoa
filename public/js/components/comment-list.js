@@ -11,7 +11,6 @@ import { DEFAULT_AVATAR } from '../constants/default';
 import '../../scss/comment.scss';
 
 const SHOW_NUM = 10;
-const { userInfo } = window;
 
 class CommentList extends Component {
   constructor(props) {
@@ -42,8 +41,8 @@ class CommentList extends Component {
     utils.fetch(POST_ARTICLE_COMMENT, {
       method: 'POST',
       data: {
-        uid: userInfo.uid,
-        aid: window.__ARTICLE_INFO__.aid,
+        uid: this.props.userInfo.uid,
+        aid: this.props.articleInfo.aid,
         content: selfComment,
         time: Date.now().toString()
       }
@@ -74,6 +73,7 @@ class CommentList extends Component {
   }
   render() {
     const { curPage, selfComment, showActions, data } = this.state;
+    const { userInfo } = this.props;
     const total = data.length;
     const showData = data.slice((curPage - 1) * SHOW_NUM, curPage * SHOW_NUM);
     const hasComment = showData.length > 0;
@@ -130,7 +130,9 @@ class CommentList extends Component {
 }
 
 CommentList.propTypes = {
-  data: PropTypes.array.isRequired
+  data: PropTypes.array.isRequired,
+  userInfo: PropTypes.object.isRequired,
+  articleInfo: PropTypes.object.isRequired
 };
 
 export default CommentList;

@@ -1,0 +1,32 @@
+{
+	"presets": [
+		[
+			"env",
+			{
+				"targets": {
+					"node": "current"
+				}
+			}
+		],
+    "react",
+    "es2015",
+    "stage-0"
+	],
+	"plugins": [
+		["import", {"libraryName": "antd", "style": true}],
+		["module-resolver", {
+			"cwd": "babelrc",
+			"root": ["../public/js"],
+			"alias": {
+				"scss": "../public/scss",
+				"components": "../public/js/components",
+				"containers": "../public/js/containers",
+				"constants": "../public/js/constants",
+				"lib": "../public/js/lib",
+				"router": "../public/js/router",
+				"stirngs": "../public/js/string.js",
+				"store": "../public/js/store"
+			}
+		}]
+	]
+}

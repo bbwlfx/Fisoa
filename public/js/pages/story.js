@@ -3,6 +3,6 @@ import React from 'react';
 import Story from '../containers/story';
 
 render(
-  <Story />,
+  <Story {...window.__PROPS__} />,
   document.getElementById('root')
 );

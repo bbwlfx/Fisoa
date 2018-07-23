@@ -8,3 +8,4 @@ versionFile.json
 errorLog.log
 logs/
 resources/images/
+package-lock.json

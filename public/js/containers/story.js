@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Icon, message } from 'antd';
+import PropTypes from 'prop-types';
 import Tag from 'components/tag';
 import { EditorState, convertFromRaw } from 'draft-js';
 import Button from 'components/button';
@@ -20,50 +21,49 @@ import strings from 'strings';
 import Nav from './nav';
 import '../../scss/story.scss';
 
-const info = window.__ARTICLE_INFO__;
-const isSelf = info.uid === window.userInfo.uid;
-
 const viewStory = (aid) => {
   utils.fetch(VIEW_ARTICLE, {
     data: { aid }
   });
 };
 
-class Story extends Component {
+export default class Story extends Component {
   constructor(props) {
     super(props);
+    const { articleInfo } = props;
     this.state = {
-      editorState: EditorState.createWithContent(convertFromRaw(JSON.parse(info.content))),
-      commend: !!info.has_support || false,
-      support: info.support_count,
-      collect: !!info.has_collect || false,
-      collectCount: info.collect_count,
+      editorState: EditorState.createWithContent(convertFromRaw(JSON.parse(articleInfo.content))),
+      commend: !!articleInfo.has_support || false,
+      support: articleInfo.support_count,
+      collect: !!articleInfo.has_collect || false,
+      collectCount: articleInfo.collect_count,
       data: [],
-      followed: !!info.followed,
+      followed: !!articleInfo.followed,
       articleList: [],
       loadingArticle: false,
-      fans_count: info.author_fans_count
+      fans_count: articleInfo.author_fans_count
     };
     utils.bindMethods(['postSupport', 'postCollect', 'postAttention', 'getArticleList'], this);
-    utils.splitSearch(window.location);
   }
   componentDidMount() {
-    if(window.userInfo.hasLogin) {
-      history.saveHistory(window.userInfo.uid, {
-        title: info.title,
-        href: `/article/${info.aid}`,
+    utils.splitSearch(window.location);
+    const { userInfo, articleInfo } = this.props;
+    if(userInfo.hasLogin) {
+      history.saveHistory(userInfo.uid, {
+        title: articleInfo.title,
+        href: `/article/${articleInfo.aid}`,
         type: articleType.Article,
-        id: info.aid
+        id: articleInfo.aid
       });
     }
     this.getArticleList();
     this.getComments();
-    viewStory(info.aid);
+    viewStory(articleInfo.aid);
     utils.logEvent('PV_Story', {
       source: window.location.query || 'origin'
     });
     const clipboard = new Clipboard('#share', {
-      text: () => `我发现了一篇特别好的文章《${info.title}》，点击这里进行阅读：${window.location.href}?source=share`
+      text: () => `我发现了一篇特别好的文章《${articleInfo.title}》，点击这里进行阅读：${window.location.href}?source=share`
     });
     if(clipboard) {
       clipboard.on('success', () => {
@@ -80,7 +80,7 @@ class Story extends Component {
     });
     utils.fetch(GET_SIMPLE_ARTICLE_LIST, {
       data: {
-        uid: info.uid
+        uid: this.props.articleInfo.uid
       }
     }).then((res) => {
       if(res.type === 0) {
@@ -99,15 +99,16 @@ class Story extends Component {
     if(this.state.commend) {
       return;
     }
+    const { articleInfo } = this.props;
     utils.fetch(POST_ARTICLE_SUPPORT, {
       method: 'POST',
       data: {
-        aid: info.aid
+        aid: articleInfo.aid
       }
     }).then((res) => {
       if(res.type === 0) {
         utils.logEvent('Support_Article', {
-          ArticleId: info.aid
+          ArticleId: articleInfo.aid
         });
         this.setState({
           commend: true,
@@ -123,7 +124,7 @@ class Story extends Component {
   getComments() {
     utils.fetch(ARTICLE_GET_COMMENT, {
       data: {
-        aid: info.aid
+        aid: this.props.articleInfo.aid
       }
     }).then((res) => {
       if(res.type === 0) {
@@ -143,7 +144,7 @@ class Story extends Component {
     utils.fetch(url, {
       method: 'POST',
       data: {
-        atid: info.uid
+        atid: this.props.articleInfo.uid
       }
     }).then((res) => {
       if(res.type === 0) {
@@ -167,10 +168,9 @@ class Story extends Component {
     utils.fetch(POST_COLLECT, {
       method: 'POST',
       data: {
-        aid: info.aid
+        aid: this.props.articleInfo.aid
       }
     }).then((res) => {
-      console.log(res);
       if(res.type === 0) {
         utils.logEvent('Collect_Article');
         this.setState({
@@ -185,6 +185,7 @@ class Story extends Component {
     });
   }
   render() {
+    const { articleInfo, isSelf, userInfo } = this.props;
     const {
       editorState, commend, support, collect,
       collectCount, data, followed, articleList,
@@ -192,7 +193,7 @@ class Story extends Component {
     } = this.state;
     const {
       title, time, author, tags, uid, banner, view
-    } = info;
+    } = articleInfo;
     const _tags = tags.split(',');
     const href = `/profile/${uid}`;
     moment.locale('zh-cn');
@@ -227,7 +228,7 @@ class Story extends Component {
           </div>
         </div>
         <div className="story-container">
-          <Nav />
+          <Nav userInfo={userInfo} />
           {banner &&
             <div className="article-banner">
               <img src={banner} className="banner-image" />
@@ -254,14 +255,14 @@ class Story extends Component {
               readOnly
               localization={{ locale: 'zh' }}
             />
-            <CommentList data={data} />
+            <CommentList data={data} userInfo={userInfo} articleInfo={articleInfo} />
           </div>
         </div>
         <div className="right-area">
           <div className="autho-container">
             <Img
               wrapperClassName="avatar"
-              src={info.avatar || DEFAULT_AVATAR}
+              src={articleInfo.avatar || DEFAULT_AVATAR}
               href={href}
             />
             <div className="autho-right">
@@ -280,10 +281,14 @@ class Story extends Component {
             </div>
           </div>
           <h4 className="block-title">{strings.story_simple_list_title}</h4>
-          <SimpleArticleList list={articleList} uid={info.uid} loading={loadingArticle} />
+          <SimpleArticleList list={articleList} uid={articleInfo.uid} loading={loadingArticle} />
         </div>
       </div>
     );
   }
 }
-export default Story;
+Story.propTypes = {
+  userInfo: PropTypes.object.isRequired,
+  isSelf: PropTypes.bool.isRequired,
+  articleInfo: PropTypes.object.isRequired
+};
