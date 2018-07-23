@@ -29,13 +29,13 @@ Fisoa是一个基于React/Node的在线PC端问答社区产品，拥有类似知
 项目包括node层(node)、前端(public)两层代码。两层代码的依赖均在node_modules中，依赖项在package.json内。
 开发时请在IDE中开启Eslint插件。
 
-## TODO:
+## TODOS:
 - 分享文章功能实现
-- React升级16.3
 - More
 
 ## DONE
 - 文章详情页SSR(碰到太多的坑)
+- React升级16.3
 
 ## 开发环境
 
