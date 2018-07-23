@@ -165,7 +165,7 @@ config.js文件为开发环境配置，已废弃
 数据统计使用amplitude平台，如果需要的话，请自己在amplitude上注册账号，并替换/template/common/counter.pug中的sdk
 
 ## 关于错误日志
-开发过程中node打印的错误日志请到errorLog.log文件中查看
+开发过程中node打印的日志请到./logs目录中查看
 
 ## 项目截图
 
