@@ -9,6 +9,12 @@ class Img extends Component {
     super(props);
     utils.bindMethods(['onLoad'], this);
   }
+  componentDidMount() {
+    const { src } = this.props;
+    if(!/https?/.test(src)) {
+      this.img.className += ' loaded';
+    }
+  }
   onLoad() {
     this.img.className += ' loaded';
   }
@@ -21,7 +27,6 @@ class Img extends Component {
           src={src}
           ref={(c) => { this.img = c; }}
           onLoad={this.onLoad}
-          alt=""
         />
       </a>
     );
