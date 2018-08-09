@@ -1,8 +1,6 @@
 package models
 
 import (
-	"config"
-	"database/sql"
 	"utils"
 )
 
@@ -18,36 +16,32 @@ type QComment struct {
 }
 
 func SelectQuestionCommentCount(qid int) (c QComment) {
-	db, err := sql.Open("mysql", config.DataSourceName)
-	utils.CheckError(err)
+	db := utils.GetConnect()
 	defer db.Close()
 
-	err = db.QueryRow("select count(*) as count from T_question_comment where qid=?", qid).Scan(&c.Cid, &c.Qid, &c.Uid, &c.Time, &c.Content, &c.ReportReason, &c.Thanks, &c.Status)
+	err := db.QueryRow("select count(*) as count from T_question_comment where qid=?", qid).Scan(&c.Cid, &c.Qid, &c.Uid, &c.Time, &c.Content, &c.ReportReason, &c.Thanks, &c.Status)
 	utils.CheckError(err)
 	return
 }
 
 func SelectAnswer(qid int) (c QComment) {
-	db, err := sql.Open("mysql", config.DataSourceName)
-	utils.CheckError(err)
+	db := utils.GetConnect()
 	defer db.Close()
 
-	err = db.QueryRow("select * from T_question_comment where qid=? order by thanks", qid).Scan(&c.Cid, &c.Qid, &c.Uid, &c.Time, &c.Content, &c.ReportReason, &c.Thanks, &c.Status)
+	err := db.QueryRow("select * from T_question_comment where qid=? order by thanks", qid).Scan(&c.Cid, &c.Qid, &c.Uid, &c.Time, &c.Content, &c.ReportReason, &c.Thanks, &c.Status)
 	utils.CheckError(err)
 	return
 }
 
 func InsertAnswer(qid int, uid int, content string, time string) {
-	db, err := sql.Open("mysql", config.DataSourceName)
-	utils.CheckError(err)
+	db := utils.GetConnect()
 	defer db.Close()
 
 	db.Exec("insert into T_question_comment(qid, uid, content, time) values(?,?,?,?)", qid, uid, content, time)
 }
 
 func InsertAnswerSupport(cid int, uid int) {
-	db, err := sql.Open("mysql", config.DataSourceName)
-	utils.CheckError(err)
+	db := utils.GetConnect()
 	defer db.Close()
 
 	db.Exec("insert into T_support_quesion_comment(cid, uid) values(?,?)", cid, uid)
@@ -55,22 +49,21 @@ func InsertAnswerSupport(cid int, uid int) {
 
 func SelectAnswerSupportCount(cid int) int {
 	var count = 0
-	db, err := sql.Open("mysql", config.DataSourceName)
-	utils.CheckError(err)
+	db := utils.GetConnect()
 	defer db.Close()
 
-	err = db.QueryRow("select count(*) as count from T_support_quesion_comment where cid=?", cid).Scan(&count)
+	err := db.QueryRow("select count(*) as count from T_support_quesion_comment where cid=?", cid).Scan(&count)
 	utils.CheckError(err)
 	return count
 }
 
 func SelectIfAnswerSupport(cid int, uid int) bool {
 	var count = 0
-	db, err := sql.Open("mysql", config.DataSourceName)
-	utils.CheckError(err)
+	db := utils.GetConnect()
 	defer db.Close()
 
-	err = db.QueryRow("select count(*) from T_support_quesion_comment where cid=? and uid=?", cid, uid).Scan(&count)
+	err := db.QueryRow("select count(*) from T_support_quesion_comment where cid=? and uid=?", cid, uid).Scan(&count)
+	utils.CheckError(err)
 	if count > 0 {
 		return true
 	}
@@ -78,16 +71,14 @@ func SelectIfAnswerSupport(cid int, uid int) bool {
 }
 
 func DeleteQuestion(qid int) {
-	db, err := sql.Open("mysql", config.DataSourceName)
-	utils.CheckError(err)
+	db := utils.GetConnect()
 	defer db.Close()
 
 	db.Exec("delete from T_question where qid=?", qid)
 }
 
 func UpdateQuestionTime(updateTime string, qid int) {
-	db, err := sql.Open("mysql", config.DataSourceName)
-	utils.CheckError(err)
+	db := utils.GetConnect()
 	defer db.Close()
 
 	db.Exec("update T_question set updateTime=? where qid=?", updateTime, qid)

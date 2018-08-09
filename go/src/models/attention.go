@@ -1,8 +1,6 @@
 package models
 
 import (
-	"config"
-	"database/sql"
 	"utils"
 )
 
@@ -12,8 +10,7 @@ type Attention struct {
 }
 
 func InsertAttention(uid int, atid int) {
-	db, err := sql.Open("mysql", config.DataSourceName)
-	utils.CheckError(err)
+	db := utils.GetConnect()
 	defer db.Close()
 
 	stmt, err := db.Prepare("insert into T_user_attention(uid, atid) values(?,?)")
@@ -24,8 +21,7 @@ func InsertAttention(uid int, atid int) {
 }
 
 func deleteAttention(uid int, atid int) {
-	db, err := sql.Open("mysql", config.DataSourceName)
-	utils.CheckError(err)
+	db := utils.GetConnect()
 	defer db.Close()
 
 	db.Exec("delete from T_user_attention where uid=? and atid=?", uid, atid)
