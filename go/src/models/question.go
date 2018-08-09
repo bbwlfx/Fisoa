@@ -53,3 +53,27 @@ func SelectQuestionByQid(qid int) (q Question) {
 	utils.CheckError(err)
 	return
 }
+
+func SelectFeedQuestion(start int, end int) (q []Question) {
+	db := utils.GetConnect()
+	defer db.Close()
+
+	rows, err := db.Query("select * from T_question order by updateTime desc limit ?,?", start, end)
+	utils.CheckError(err)
+
+	for rows.Next() {
+		var (
+			qid        int
+			uid        int
+			title      string
+			tags       string
+			content    string
+			time       string
+			status     int
+			updateTime string
+		)
+		rows.Scan(&qid, &uid, &title, &tags, &content, &time, &status, &updateTime)
+		q = append(q, Question{qid, uid, title, tags, content, time, status, updateTime})
+	}
+	return
+}
