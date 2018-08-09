@@ -1,8 +1,6 @@
 package models
 
 import (
-	"config"
-	"database/sql"
 	"utils"
 )
 
@@ -18,16 +16,14 @@ type Question struct {
 }
 
 func InsertQuestion(uid int, title string, tags string, content string, time string, updateTime string) {
-	db, err := sql.Open("mysql", config.DataSourceName)
-	utils.CheckError(err)
+	db := utils.GetConnect()
 	defer db.Close()
 
 	db.Exec("insert into T_question(uid, title, tags, content, time, updateTime) values(?,?,?,?,?,?)", uid, title, tags, content, time, updateTime)
 }
 
 func SelectQuestion(uid int, start int, end int) (q []Question) {
-	db, err := sql.Open("mysql", config.DataSourceName)
-	utils.CheckError(err)
+	db := utils.GetConnect()
 	defer db.Close()
 
 	rows, err := db.Query("select * from T_question where uid=? order by time desc limit ?,?", uid, start, end)
@@ -51,11 +47,9 @@ func SelectQuestion(uid int, start int, end int) (q []Question) {
 }
 
 func SelectQuestionByQid(qid int) (q Question) {
-	db, err := sql.Open("mysql", config.DataSourceName)
-	utils.CheckError(err)
+	db := utils.GetConnect()
 	defer db.Close()
-
-	err = db.QueryRow("select * from T_question where qid=?", qid).Scan(&q.Qid, &q.Uid, &q.Title, &q.Tags, &q.Tags, &q.Content, &q.Time, &q.Status, &q.UpdateTime)
+	err := db.QueryRow("select * from T_question where qid=?", qid).Scan(&q.Qid, &q.Uid, &q.Title, &q.Tags, &q.Content, &q.Time, &q.Status, &q.UpdateTime)
 	utils.CheckError(err)
 	return
 }

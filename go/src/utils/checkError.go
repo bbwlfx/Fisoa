@@ -1,9 +1,12 @@
 package utils
 
-import "log"
+import (
+	"database/sql"
+	"log"
+)
 
 func CheckError(err error) {
-	if err != nil {
+	if err != nil && err != sql.ErrNoRows {
 		log.Fatal(err)
 		panic(err)
 	}
