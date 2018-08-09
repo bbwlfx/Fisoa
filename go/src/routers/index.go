@@ -1,12 +1,14 @@
 package routers
 
 import (
-	"fmt"
+	"api"
 	"github.com/julienschmidt/httprouter"
 	"net/http"
 )
 
-func Index(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
-	fmt.Println("Hello World")
-	fmt.Fprint(w, "Hello World")
+var router = httprouter.New()
+
+func Routes() http.Handler {
+	router.GET("/", api.Index)
+	return router
 }

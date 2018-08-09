@@ -2,6 +2,14 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$/.." vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/astaxie/beedb" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/bmizerany/pq" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/go-ole/go-ole" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/go-sql-driver/mysql" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/src/github.com/julienschmidt/httprouter" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/mattn/go-adodb" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/mattn/go-sqlite3" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/github.com/ziutek/mymysql" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/src/golang.org/x/net" vcs="Git" />
   </component>
 </project>
