@@ -9,8 +9,8 @@ import (
 )
 
 func Index(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
-	var question = models.SelectQuestion(6300000, 0, 10)
+	var user = models.SelectUserByUid(6300000)
 	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
-	response := utils.JSON(models.Response{0, question, "success"})
+	response := utils.JSON(models.Response{0, user, "success"})
 	fmt.Fprintln(w, response)
 }

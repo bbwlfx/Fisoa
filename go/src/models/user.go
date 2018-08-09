@@ -9,11 +9,10 @@ type User struct {
 	Uid         int    `sql:"uid"`
 	Account     string `sql:"account"`
 	Password    string `sql:"password"`
-	Email       string `sql:"email"`
 	Nickname    string `sql:"nickname"`
 	Avatar      string `sql:"avatar"`
-	Age         byte   `sql:"age"`
-	Sex         byte   `sql:"sex"`
+	Age         int8   `sql:"age"`
+	Sex         int8   `sql:"sex"`
 	Fans        int    `sql:"fans"`
 	Blog        string `sql:"blog"`
 	School      string `sql:"school"`
@@ -22,9 +21,10 @@ type User struct {
 	Weibo       string `sql:"weibo"`
 	Area        string `sql:"Area"`
 	Description string `sql:"description"`
-	Overt       byte   `sql:"overt"`
+	Overt       int8   `sql:"overt"`
 	Banner      string `sql:"banner"`
 	Status      int    `sql:"status"`
+	Email       string `sql:"email"`
 	LV          int    `sql:"lv"`
 	Expr        int    `sql:"expr"`
 	Openmail    int    `sql:"openmail"`
@@ -38,7 +38,6 @@ func SelectUser(account string) (user User) {
 		&user.Uid,
 		&user.Account,
 		&user.Password,
-		&user.Email,
 		&user.Nickname,
 		&user.Avatar,
 		&user.Age,
@@ -54,6 +53,7 @@ func SelectUser(account string) (user User) {
 		&user.Overt,
 		&user.Banner,
 		&user.Status,
+		&user.Email,
 		&user.LV,
 		&user.Expr,
 		&user.Openmail,
@@ -79,7 +79,6 @@ func SelectUserByUid(uid int) (user User) {
 		&user.Uid,
 		&user.Account,
 		&user.Password,
-		&user.Email,
 		&user.Nickname,
 		&user.Avatar,
 		&user.Age,
@@ -95,6 +94,7 @@ func SelectUserByUid(uid int) (user User) {
 		&user.Overt,
 		&user.Banner,
 		&user.Status,
+		&user.Email,
 		&user.LV,
 		&user.Expr,
 		&user.Openmail,
@@ -176,8 +176,8 @@ func GetAttentionList(uid int) (user []User) {
 			email       string
 			nickname    string
 			avatar      string
-			age         byte
-			sex         byte
+			age         int8
+			sex         int8
 			fans        int
 			blog        string
 			school      string
@@ -186,18 +186,17 @@ func GetAttentionList(uid int) (user []User) {
 			weibo       string
 			area        string
 			description string
-			overt       byte
+			overt       int8
 			banner      string
 			status      int
 			lv          int
 			expr        int
 			openmail    int
 		)
-		rows.Scan(&uid, &account, &password, &email, &nickname, &avatar, &age, &sex, &fans, &blog, &school, &qq, &wechat, &weibo, &area, &description, &overt, &banner, &status, &lv, &expr, &openmail)
+		rows.Scan(&uid, &account, &password, &nickname, &avatar, &age, &sex, &fans, &blog, &school, &qq, &wechat, &weibo, &area, &description, &overt, &banner, &status, &email, &lv, &expr, &openmail)
 		user = append(user, User{uid,
 			account,
 			password,
-			email,
 			nickname,
 			avatar,
 			age,
@@ -213,6 +212,7 @@ func GetAttentionList(uid int) (user []User) {
 			overt,
 			banner,
 			status,
+			email,
 			lv,
 			expr,
 			openmail})
@@ -259,10 +259,10 @@ func SelectUidByAid(aid int) (user User) {
 	db := utils.GetConnect()
 	defer db.Close()
 
-	err := db.QueryRow("select * from T_user where uid = (select uid from T_article where aid=?)", aid).Scan(&user.Uid,
+	err := db.QueryRow("select * from T_user where uid = (select uid from T_article where aid=?)", aid).Scan(
+		&user.Uid,
 		&user.Account,
 		&user.Password,
-		&user.Email,
 		&user.Nickname,
 		&user.Avatar,
 		&user.Age,
@@ -278,6 +278,7 @@ func SelectUidByAid(aid int) (user User) {
 		&user.Overt,
 		&user.Banner,
 		&user.Status,
+		&user.Email,
 		&user.LV,
 		&user.Expr,
 		&user.Openmail)
@@ -292,7 +293,6 @@ func SelectUidByCid(cid int) (user User) {
 	err := db.QueryRow("select * from T_user where uid = (select uid from T_question_comment where cid=?)", cid).Scan(&user.Uid,
 		&user.Account,
 		&user.Password,
-		&user.Email,
 		&user.Nickname,
 		&user.Avatar,
 		&user.Age,
@@ -308,6 +308,7 @@ func SelectUidByCid(cid int) (user User) {
 		&user.Overt,
 		&user.Banner,
 		&user.Status,
+		&user.Email,
 		&user.LV,
 		&user.Expr,
 		&user.Openmail)

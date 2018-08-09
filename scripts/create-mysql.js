@@ -8,7 +8,6 @@ const createTuser = `CREATE TABLE T_user(
   uid int PRIMARY KEY NOT NULL AUTO_INCREMENT,
   account VARCHAR(40) NOT NULL UNIQUE,
   password VARCHAR(255) NOT NULL,
-  email VARCHAR(255) NOT NULL,
   nickname VARCHAR(20) NOT NULL DEFAULT '新注册用户',
   avatar VARCHAR(200) DEFAULT '',
   age TINYINT DEFAULT 18,
@@ -24,6 +23,7 @@ const createTuser = `CREATE TABLE T_user(
   overt TINYINT DEFAULT 0,
   banner VARCHAR(200) DEFAULT '',
   status int NOT NULL DEFAULT 1,
+  email VARCHAR(255) NOT NULL,
   lv int NOT NULL DEFAULT 1,
   expr int NOT NULL DEFAULT 0,
   openmail int NOT NULL DEFAULT 0
